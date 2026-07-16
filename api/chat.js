@@ -43,7 +43,7 @@ export default async function handler(request) {
 
     // Default model if not specified
     if (!body.model) {
-      body.model = 'claude-sonnet-4-6';
+      body.model = 'claude-sonnet-5';
     }
 
     const response = await fetch('https://api.anthropic.com/v1/messages', {
