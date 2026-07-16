@@ -1,0 +1,9 @@
+{
+  "name": "kai-chef-app",
+  "version": "0.1.0",
+  "private": true,
+  "description": "KAI CHEF - AI cooking companion (PWA)",
+  "engines": {
+    "node": ">=18"
+  }
+}
