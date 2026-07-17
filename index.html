@@ -160,18 +160,287 @@
   }
   .brand-text span { color: var(--cyan); }
   .avatar {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background: rgba(255,255,255,0.15);
-    border: 1.5px solid rgba(255,255,255,0.25);
+    border: 1.5px solid rgba(255,255,255,0.35);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
     font-size: 13px;
     cursor: pointer;
+    overflow: hidden;
+    padding: 0;
   }
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Kai character in chat hero */
+  .chef-hero-img {
+    width: 100%;
+    max-width: 260px;
+    border-radius: 20px;
+    margin: 0 auto 18px;
+    display: block;
+    box-shadow: var(--shadow-md);
+    aspect-ratio: 900 / 491;
+    object-fit: cover;
+  }
+  .chef-msg-avatar {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    object-fit: cover;
+    vertical-align: middle;
+    margin-left: 6px;
+    border: 1.5px solid rgba(63, 180, 229, 0.3);
+  }
+
+  /* Search bar results */
+  .no-results-state {
+    background: var(--white);
+    border: 1px dashed var(--gray-200);
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    color: var(--gray-500);
+    margin-bottom: 12px;
+  }
+  .no-results-state p { font-size: 14px; margin-bottom: 12px; }
+  .no-results-btn {
+    background: linear-gradient(135deg, var(--cyan) 0%, var(--cyan-deep) 100%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  /* ============ WEEKLY MENU SCREEN ============ */
+  .menu-form {
+    background: var(--white);
+    border-radius: 18px;
+    padding: 18px;
+    border: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 18px;
+  }
+  .menu-form-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+    margin-top: 14px;
+  }
+  .menu-form-label:first-child { margin-top: 0; }
+  .segment {
+    display: flex;
+    background: var(--gray-100);
+    border-radius: 12px;
+    padding: 4px;
+    gap: 4px;
+  }
+  .segment-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-700);
+    cursor: pointer;
+    min-height: 40px;
+  }
+  .segment-btn.active {
+    background: var(--white);
+    color: var(--navy);
+    font-weight: 700;
+    box-shadow: 0 2px 6px rgba(13, 44, 92, 0.08);
+  }
+  .menu-day-card {
+    background: var(--white);
+    border-radius: 18px;
+    padding: 16px 18px;
+    border: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 12px;
+    animation: msgIn 0.35s ease;
+  }
+  .menu-day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .menu-day-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .menu-day-num {
+    font-size: 11px;
+    color: var(--cyan-deep);
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .menu-meal {
+    padding: 10px 0;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .menu-meal + .menu-meal { border-top: 1px solid var(--gray-100); }
+  .menu-meal-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .menu-meal-icon.breakfast { background: #fff2d9; color: #b8842a; }
+  .menu-meal-icon.lunch { background: #ffe6d1; color: #b8501a; }
+  .menu-meal-icon.dinner { background: #dcf1fa; color: #1e88c4; }
+  .menu-meal-info { flex: 1; min-width: 0; }
+  .menu-meal-type {
+    font-size: 10px;
+    color: var(--gray-500);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+  }
+  .menu-meal-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 3px;
+  }
+  .menu-meal-desc {
+    font-size: 12px;
+    color: var(--gray-500);
+    line-height: 1.4;
+  }
+
+  /* ============ SHOPPING LIST SCREEN ============ */
+  .shop-input-wrap {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 16px;
+    padding: 6px 6px 6px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 18px;
+  }
+  .shop-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--navy);
+    background: transparent;
+    padding: 8px 0;
+    min-height: 40px;
+  }
+  .shop-add-btn {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--orange) 0%, var(--orange-deep) 100%);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgba(255, 122, 36, 0.35);
+  }
+  .shop-category-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gray-500);
+    letter-spacing: 1px;
+    margin: 18px 0 8px;
+    text-transform: uppercase;
+  }
+  .shop-item {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--gray-200);
+    margin-bottom: 6px;
+    transition: opacity 0.15s;
+  }
+  .shop-item.done { opacity: 0.5; }
+  .shop-item.done .shop-item-name { text-decoration: line-through; color: var(--gray-500); }
+  .shop-check {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--gray-200);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: transparent;
+    color: white;
+    font-size: 14px;
+  }
+  .shop-check.checked {
+    background: var(--cyan);
+    border-color: var(--cyan);
+  }
+  .shop-item-name {
+    flex: 1;
+    font-size: 15px;
+    color: var(--navy);
+  }
+  .shop-delete {
+    background: none;
+    border: none;
+    color: var(--gray-500);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 4px 8px;
+    line-height: 1;
+    opacity: 0.5;
+  }
+  .shop-delete:hover { opacity: 1; color: #d84545; }
+  .shop-clear-btn {
+    width: 100%;
+    background: transparent;
+    color: var(--gray-500);
+    border: 1px solid var(--gray-200);
+    padding: 10px;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: 16px;
+  }
+  .shop-clear-btn:hover { color: #d84545; border-color: #d84545; }
   .greeting { position: relative; z-index: 1; }
   .greeting-sub { font-size: 13px; opacity: 0.7; margin-bottom: 4px; }
   .greeting-title { font-size: 24px; font-weight: 700; line-height: 1.2; }
@@ -945,7 +1214,9 @@
         <div class="brand-logo">K</div>
         <div class="brand-text">KAI<span> CHEF</span></div>
       </div>
-      <div class="avatar">שף</div>
+      <div class="avatar" onclick="openScreen('profileScreen')">
+        <img src="/assets/kai-avatar.jpg" alt="Kai">
+      </div>
     </div>
     <div class="greeting">
       <div class="greeting-sub">שלום, בואי נבשל</div>
@@ -956,7 +1227,14 @@
   <div class="main">
     <div class="search">
       <span class="search-icon">🔍</span>
-      <input type="text" placeholder="חפש מתכון, מרכיב, או שאלה...">
+      <input type="text" id="searchInput" placeholder="חפש מתכון, מרכיב, או שאלה..." oninput="handleSearch(this.value)">
+    </div>
+
+    <div id="searchNoResults" style="display: none;">
+      <div class="no-results-state">
+        <p>אין מתכון שמתאים ל-"<span id="searchTerm"></span>"</p>
+        <button class="no-results-btn" onclick="askKaiAboutSearch()">שאל את Kai על זה 💬</button>
+      </div>
     </div>
 
     <div class="section-title">
@@ -976,12 +1254,12 @@
         <div class="quick-title">שאל את השף</div>
         <div class="quick-sub">ייעוץ בזמן אמת</div>
       </div>
-      <div class="quick-card" onclick="alert('בקרוב 🗓️')">
+      <div class="quick-card" onclick="openScreen('weeklyScreen')">
         <div class="quick-icon navy">📅</div>
         <div class="quick-title">תפריט שבועי</div>
         <div class="quick-sub">תכנון אוטומטי</div>
       </div>
-      <div class="quick-card" onclick="alert('בקרוב 🛒')">
+      <div class="quick-card" onclick="openScreen('shoppingScreen')">
         <div class="quick-icon mixed">🛒</div>
         <div class="quick-title">רשימת קניות</div>
         <div class="quick-sub">מוצרים חסרים</div>
@@ -1005,7 +1283,8 @@
       <span>AI ✨</span>
     </div>
 
-    <div class="recipe-card" onclick="openCookMode('pasta')">
+    <div id="recipeCards">
+    <div class="recipe-card" data-search="פסטה שמנת פטריות איטלקי" onclick="openCookMode('pasta')">
       <div class="recipe-thumb">🍝</div>
       <div class="recipe-info">
         <div>
@@ -1020,7 +1299,7 @@
       </div>
     </div>
 
-    <div class="recipe-card" onclick="openCookMode('bowl')">
+    <div class="recipe-card" data-search="קערת בודהה בריא ירקות טבעוני צמחוני קינואה" onclick="openCookMode('bowl')">
       <div class="recipe-thumb two">🥗</div>
       <div class="recipe-info">
         <div>
@@ -1035,7 +1314,7 @@
       </div>
     </div>
 
-    <div class="recipe-card" onclick="openCookMode('soup')">
+    <div class="recipe-card" data-search="מרק עדשים תימני חורף מנחם" onclick="openCookMode('soup')">
       <div class="recipe-thumb three">🍲</div>
       <div class="recipe-info">
         <div>
@@ -1049,23 +1328,24 @@
         </div>
       </div>
     </div>
+    </div>
   </div>
 
   <div class="nav">
-    <div class="nav-item active">
+    <div class="nav-item active" onclick="navGoHome()">
       <svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3v-6h6v6h3a1 1 0 001-1V10"/></svg>
       <span>בית</span>
     </div>
-    <div class="nav-item">
+    <div class="nav-item" onclick="navSearch()">
       <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
       <span>חיפוש</span>
     </div>
     <div class="nav-item center"><span>KAI</span></div>
-    <div class="nav-item">
+    <div class="nav-item" onclick="openScreen('favoritesScreen')">
       <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
       <span>מועדפים</span>
     </div>
-    <div class="nav-item">
+    <div class="nav-item" onclick="openScreen('profileScreen')">
       <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
       <span>שלי</span>
     </div>
@@ -1088,8 +1368,8 @@
     </div>
     <div class="screen-body" id="chefBody">
       <div class="empty-state" id="chefEmpty">
-        <div class="empty-icon">👨‍🍳</div>
-        <h4>שלום, אני Kai</h4>
+        <img src="/assets/kai-duo.jpg" class="chef-hero-img" alt="הצוות של Kai">
+        <h4>שלום, אני Kai 👋</h4>
         <p>שאל אותי כל דבר בבישול -<br>מהחלפות, לטכניקות, ועד לפתרון בעיות</p>
         <div class="suggest-chips">
           <button class="suggest-chip" onclick="askQuestion('איך יודעים שהעוף מוכן?')">איך יודעים שהעוף מוכן?</button>
@@ -1159,6 +1439,129 @@
     <div class="cook-nav">
       <button class="cook-nav-btn" id="cookPrev" onclick="cookNav(-1)">→ קודם</button>
       <button class="cook-nav-btn next" id="cookNext" onclick="cookNav(1)">הבא ←</button>
+    </div>
+  </div>
+
+  <!-- ============ WEEKLY MENU SCREEN ============ -->
+  <div class="screen" id="weeklyScreen">
+    <div class="screen-header">
+      <button class="back-btn" onclick="closeScreen('weeklyScreen')">→</button>
+      <div>
+        <div class="screen-title">תפריט שבועי</div>
+        <div class="screen-sub">מותאם ל-AI ✨</div>
+      </div>
+    </div>
+    <div class="screen-body">
+      <div class="menu-form">
+        <div class="menu-form-label">כמה ימים?</div>
+        <div class="segment" id="menuDaysSeg">
+          <button class="segment-btn" data-days="3" onclick="selectSegment(this, 'menuDaysSeg')">3 ימים</button>
+          <button class="segment-btn active" data-days="5" onclick="selectSegment(this, 'menuDaysSeg')">5 ימים</button>
+          <button class="segment-btn" data-days="7" onclick="selectSegment(this, 'menuDaysSeg')">שבוע מלא</button>
+        </div>
+
+        <div class="menu-form-label">כמה סועדים?</div>
+        <div class="segment" id="menuServingsSeg">
+          <button class="segment-btn" data-servings="1" onclick="selectSegment(this, 'menuServingsSeg')">1</button>
+          <button class="segment-btn active" data-servings="2" onclick="selectSegment(this, 'menuServingsSeg')">2</button>
+          <button class="segment-btn" data-servings="4" onclick="selectSegment(this, 'menuServingsSeg')">4</button>
+          <button class="segment-btn" data-servings="6" onclick="selectSegment(this, 'menuServingsSeg')">6+</button>
+        </div>
+
+        <div class="menu-form-label">סגנון</div>
+        <div class="segment" id="menuStyleSeg">
+          <button class="segment-btn active" data-style="הכל" onclick="selectSegment(this, 'menuStyleSeg')">הכל</button>
+          <button class="segment-btn" data-style="בריא וקל" onclick="selectSegment(this, 'menuStyleSeg')">בריא</button>
+          <button class="segment-btn" data-style="צמחוני" onclick="selectSegment(this, 'menuStyleSeg')">צמחוני</button>
+          <button class="segment-btn" data-style="ים תיכוני" onclick="selectSegment(this, 'menuStyleSeg')">ים תיכוני</button>
+        </div>
+
+        <button class="btn-primary" id="menuGenBtn" onclick="generateWeeklyMenu()" style="margin-top: 18px;">
+          ✨ בנה לי תפריט
+        </button>
+      </div>
+
+      <div id="menuResult"></div>
+    </div>
+  </div>
+
+  <!-- ============ SHOPPING LIST SCREEN ============ -->
+  <div class="screen" id="shoppingScreen">
+    <div class="screen-header">
+      <button class="back-btn" onclick="closeScreen('shoppingScreen')">→</button>
+      <div>
+        <div class="screen-title">רשימת קניות</div>
+        <div class="screen-sub" id="shopCountLabel">0 פריטים</div>
+      </div>
+    </div>
+    <div class="screen-body">
+      <div class="shop-input-wrap">
+        <input type="text" class="shop-input" id="shopInput" placeholder="הוסף פריט..." onkeydown="if(event.key==='Enter') addShopItem()">
+        <button class="shop-add-btn" onclick="addShopItem()">+</button>
+      </div>
+      <div id="shopList"></div>
+      <button class="shop-clear-btn" id="shopClearBtn" onclick="clearBoughtItems()" style="display: none;">
+        🗑️ נקה פריטים שנקנו
+      </button>
+    </div>
+  </div>
+
+  <!-- ============ FAVORITES SCREEN ============ -->
+  <div class="screen" id="favoritesScreen">
+    <div class="screen-header">
+      <button class="back-btn" onclick="closeScreen('favoritesScreen')">→</button>
+      <div>
+        <div class="screen-title">מועדפים</div>
+        <div class="screen-sub">המתכונים ששמרתי</div>
+      </div>
+    </div>
+    <div class="screen-body">
+      <div class="empty-state">
+        <div class="empty-icon">💛</div>
+        <h4>עדיין אין מועדפים</h4>
+        <p>לחצי על ❤️ בתוך מתכון<br>כדי לשמור אותו כאן</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PROFILE SCREEN ============ -->
+  <div class="screen" id="profileScreen">
+    <div class="screen-header">
+      <button class="back-btn" onclick="closeScreen('profileScreen')">→</button>
+      <div>
+        <div class="screen-title">הפרופיל שלי</div>
+        <div class="screen-sub">הגדרות והעדפות</div>
+      </div>
+    </div>
+    <div class="screen-body">
+      <div style="text-align: center; padding: 24px 0;">
+        <img src="/assets/kai-avatar.jpg" style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid var(--cyan); margin-bottom: 12px;">
+        <div style="font-size: 20px; font-weight: 700; color: var(--navy);">שלום, שפית!</div>
+        <div style="font-size: 13px; color: var(--gray-500); margin-top: 4px;">חברת KAI CHEF מהיום הראשון</div>
+      </div>
+
+      <div class="menu-form">
+        <div class="menu-form-label">🍽️ העדפות תזונה</div>
+        <div class="segment">
+          <button class="segment-btn active">הכל</button>
+          <button class="segment-btn">צמחוני</button>
+          <button class="segment-btn">כשר</button>
+        </div>
+        <div class="menu-form-label">🔊 קול השף</div>
+        <div class="segment">
+          <button class="segment-btn active">פעיל</button>
+          <button class="segment-btn">מושתק</button>
+        </div>
+        <div class="menu-form-label">🌐 שפה</div>
+        <div class="segment">
+          <button class="segment-btn active">עברית</button>
+          <button class="segment-btn">English</button>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 20px; color: var(--gray-500); font-size: 12px;">
+        KAI CHEF v1.1 · שף AI שלך במטבח
+      </div>
     </div>
   </div>
 
@@ -1232,7 +1635,7 @@
     const typingId = 'typing-' + Date.now();
     body.innerHTML += `
       <div class="chat-message chef" id="${typingId}">
-        <div class="chef-tag"><span class="chef-tag-dot"></span>Kai חושב...</div>
+        <div class="chef-tag"><img src="/assets/kai-avatar.jpg" class="chef-msg-avatar" alt=""><span class="chef-tag-dot"></span>Kai חושב...</div>
         <div class="typing"><span></span><span></span><span></span></div>
       </div>`;
     body.scrollTop = body.scrollHeight;
@@ -1247,7 +1650,7 @@
       document.getElementById(typingId).remove();
       body.innerHTML += `
         <div class="chat-message chef">
-          <div class="chef-tag"><span class="chef-tag-dot"></span>Kai</div>
+          <div class="chef-tag"><img src="/assets/kai-avatar.jpg" class="chef-msg-avatar" alt=""><span class="chef-tag-dot"></span>Kai</div>
           ${reply.replace(/\n/g, '<br>')}
         </div>`;
       body.scrollTop = body.scrollHeight;
@@ -1665,8 +2068,223 @@
     waveAnimation = null;
   }
 
+  // ============ NAV ACTIONS ============
+  function navGoHome() {
+    document.querySelectorAll('.screen.open, .cook-screen.open').forEach(s => s.classList.remove('open'));
+    document.querySelector('.main').scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  function navSearch() {
+    navGoHome();
+    setTimeout(() => {
+      const input = document.getElementById('searchInput');
+      input.focus();
+      input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 100);
+  }
+
+  // ============ SEARCH FILTER ============
+  function handleSearch(value) {
+    const query = value.trim().toLowerCase();
+    const cards = document.querySelectorAll('#recipeCards .recipe-card');
+    let visible = 0;
+    cards.forEach(card => {
+      const searchable = (card.dataset.search + ' ' + card.textContent).toLowerCase();
+      if (!query || searchable.includes(query)) {
+        card.style.display = 'flex';
+        visible++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+    const noResults = document.getElementById('searchNoResults');
+    if (query && visible === 0) {
+      document.getElementById('searchTerm').textContent = value;
+      noResults.style.display = 'block';
+    } else {
+      noResults.style.display = 'none';
+    }
+  }
+  function askKaiAboutSearch() {
+    const query = document.getElementById('searchInput').value.trim();
+    if (!query) return;
+    openScreen('chefScreen');
+    setTimeout(() => askQuestion(`יש לך רעיון למתכון עם ${query}?`), 350);
+  }
+
+  // ============ SEGMENT CONTROLS ============
+  function selectSegment(btn, groupId) {
+    document.querySelectorAll(`#${groupId} .segment-btn`).forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  function getSegmentValue(groupId, dataAttr) {
+    const active = document.querySelector(`#${groupId} .segment-btn.active`);
+    return active ? active.dataset[dataAttr] : null;
+  }
+
+  // ============ WEEKLY MENU ============
+  async function generateWeeklyMenu() {
+    const days = getSegmentValue('menuDaysSeg', 'days') || '5';
+    const servings = getSegmentValue('menuServingsSeg', 'servings') || '2';
+    const style = getSegmentValue('menuStyleSeg', 'style') || 'הכל';
+
+    const btn = document.getElementById('menuGenBtn');
+    const result = document.getElementById('menuResult');
+    btn.disabled = true;
+    btn.innerHTML = '⏳ Kai בונה תפריט...';
+    result.innerHTML = '';
+    setKaiState('thinking');
+
+    try {
+      const response = await callClaude(
+        [{
+          role: 'user',
+          content: `בנה לי תפריט ל-${days} ימים ל-${servings} סועדים בסגנון ${style}. לכל יום ארוחת בוקר, צהריים וערב. החזר JSON בלבד בפורמט הזה בדיוק:
+{
+  "days": [
+    {
+      "name": "יום 1 - ראשון",
+      "meals": {
+        "breakfast": { "name": "שם ארוחת הבוקר", "desc": "תיאור קצר של משפט" },
+        "lunch": { "name": "שם ארוחת הצהריים", "desc": "תיאור קצר" },
+        "dinner": { "name": "שם ארוחת הערב", "desc": "תיאור קצר" }
+      }
+    }
+  ]
+}
+כל התיאורים בעברית. ${days} ימים בדיוק.`
+        }],
+        "אתה שף AI. מחזיר JSON בלבד בעברית, בלי טקסט נוסף, בלי markdown."
+      );
+      const cleaned = response.replace(/```json|```/g, '').trim();
+      const data = JSON.parse(cleaned);
+
+      const mealIcons = { breakfast: '☀️', lunch: '🍽️', dinner: '🌙' };
+      const mealLabels = { breakfast: 'בוקר', lunch: 'צהריים', dinner: 'ערב' };
+
+      let html = '';
+      data.days.forEach((day, idx) => {
+        html += `<div class="menu-day-card">
+          <div class="menu-day-header">
+            <div class="menu-day-name">${day.name}</div>
+            <div class="menu-day-num">יום ${idx + 1}</div>
+          </div>`;
+        ['breakfast', 'lunch', 'dinner'].forEach(mealType => {
+          const meal = day.meals[mealType];
+          if (!meal) return;
+          html += `<div class="menu-meal">
+            <div class="menu-meal-icon ${mealType}">${mealIcons[mealType]}</div>
+            <div class="menu-meal-info">
+              <div class="menu-meal-type">${mealLabels[mealType]}</div>
+              <div class="menu-meal-name">${meal.name}</div>
+              <div class="menu-meal-desc">${meal.desc}</div>
+            </div>
+          </div>`;
+        });
+        html += `</div>`;
+      });
+      result.innerHTML = html;
+    } catch (err) {
+      result.innerHTML = `<div class="error-msg">לא הצלחתי לבנות תפריט. נסי שוב.</div>`;
+    }
+    setKaiState('idle');
+    btn.disabled = false;
+    btn.innerHTML = '✨ בנה לי תפריט';
+  }
+
+  // ============ SHOPPING LIST (localStorage) ============
+  const SHOP_KEY = 'kai-shopping-list';
+  let shopItems = [];
+
+  function loadShopping() {
+    try {
+      const raw = localStorage.getItem(SHOP_KEY);
+      shopItems = raw ? JSON.parse(raw) : [];
+    } catch (e) { shopItems = []; }
+  }
+  function saveShopping() {
+    try { localStorage.setItem(SHOP_KEY, JSON.stringify(shopItems)); } catch (e) {}
+  }
+
+  function categorize(name) {
+    const n = name.toLowerCase();
+    if (/עגבניה|עגבניות|מלפפון|בצל|שום|תפוח אדמה|בטטה|גזר|פלפל|חסה|תרד|כרוב|פטרוזיליה|כוסברה|תפוח|בננה|תפוזים|לימון|ירק|פרי|אבוקדו|תות|ענבים/.test(n)) return 'ירקות ופירות';
+    if (/חלב|גבינה|יוגורט|שמנת|חמאה|קוטג|לבנה|ביצה|ביצים/.test(n)) return 'חלב וביצים';
+    if (/עוף|בשר|דג|סלמון|טונה|קציצות|נקניק|המבורגר/.test(n)) return 'בשר ודגים';
+    if (/לחם|פסטה|אורז|קמח|סוכר|שמן|חומץ|רסק|קוסקוס|בורגול|קטניה|עדשים/.test(n)) return 'מזווה';
+    return 'שונות';
+  }
+
+  function addShopItem(customName) {
+    const input = document.getElementById('shopInput');
+    const name = (customName || input.value).trim();
+    if (!name) return;
+    if (!shopItems.some(i => i.name === name)) {
+      shopItems.push({ id: Date.now() + '-' + Math.random(), name, category: categorize(name), bought: false });
+      saveShopping();
+      renderShopping();
+    }
+    if (!customName) input.value = '';
+    input.focus();
+  }
+  function toggleShopItem(id) {
+    const item = shopItems.find(i => i.id === id);
+    if (item) {
+      item.bought = !item.bought;
+      saveShopping();
+      renderShopping();
+    }
+  }
+  function deleteShopItem(id) {
+    shopItems = shopItems.filter(i => i.id !== id);
+    saveShopping();
+    renderShopping();
+  }
+  function clearBoughtItems() {
+    shopItems = shopItems.filter(i => !i.bought);
+    saveShopping();
+    renderShopping();
+  }
+  function renderShopping() {
+    const list = document.getElementById('shopList');
+    const countLabel = document.getElementById('shopCountLabel');
+    const clearBtn = document.getElementById('shopClearBtn');
+    const remaining = shopItems.filter(i => !i.bought).length;
+    const bought = shopItems.filter(i => i.bought).length;
+    countLabel.textContent = `${remaining} פריטים${bought ? ` · ${bought} נקנו` : ''}`;
+    clearBtn.style.display = bought > 0 ? 'block' : 'none';
+
+    if (shopItems.length === 0) {
+      list.innerHTML = `<div class="empty-state">
+        <div class="empty-icon">🛒</div>
+        <h4>הרשימה ריקה</h4>
+        <p>הוסיפי פריט כדי להתחיל</p>
+      </div>`;
+      return;
+    }
+    // Group by category
+    const groups = {};
+    shopItems.forEach(i => {
+      if (!groups[i.category]) groups[i.category] = [];
+      groups[i.category].push(i);
+    });
+    let html = '';
+    Object.keys(groups).forEach(cat => {
+      html += `<div class="shop-category-title">${cat}</div>`;
+      groups[cat].forEach(i => {
+        html += `<div class="shop-item ${i.bought ? 'done' : ''}">
+          <button class="shop-check ${i.bought ? 'checked' : ''}" onclick="toggleShopItem('${i.id}')">${i.bought ? '✓' : ''}</button>
+          <div class="shop-item-name">${i.name}</div>
+          <button class="shop-delete" onclick="deleteShopItem('${i.id}')">×</button>
+        </div>`;
+      });
+    });
+    list.innerHTML = html;
+  }
+
   // ============ INIT ============
   ['בצל', 'עגבניות', 'שום'].forEach(addIng);
+  loadShopping();
+  renderShopping();
 
   // ============ PWA: Register service worker ============
   if ('serviceWorker' in navigator) {
