@@ -1,7 +1,7 @@
 // service-worker.js
 // Basic offline cache. Every deploy bumps the version to invalidate old caches.
 
-const CACHE_VERSION = 'kai-chef-v1';
+const CACHE_VERSION = 'kai-chef-v2';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -9,6 +9,8 @@ const STATIC_ASSETS = [
   '/icons/icon-192.png',
   '/icons/icon-512.png',
   '/icons/apple-touch-icon.png',
+  '/assets/kai-avatar.jpg',
+  '/assets/kai-duo.jpg',
 ];
 
 // Install: pre-cache the shell
